@@ -4,7 +4,13 @@ import 'Constants.dart';
 import 'bottom_container.dart';
 
 class ResultPage extends StatefulWidget {
-  const ResultPage({super.key});
+  ResultPage(
+      {required this.bmiResult,
+      required this.bmiText,
+      required this.bmiDescription});
+  final String bmiResult;
+  final String bmiText;
+  final String bmiDescription;
 
   @override
   State<ResultPage> createState() => _ResultPageState();
@@ -37,20 +43,21 @@ class _ResultPageState extends State<ResultPage> {
                 children: [
                   Container(
                     child: Text(
-                      "OverWeight",
+                      widget.bmiText,
                       style: resultTextStyle,
                     ),
                   ),
                   Container(
                     child: Text(
-                      "20.0",
+                      widget.bmiResult,
                       style: bmiTextStyle,
                     ),
                   ),
                   Container(
                     child: Text(
-                      "Description",
+                      widget.bmiDescription,
                       style: descriptionTextStyle,
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ],

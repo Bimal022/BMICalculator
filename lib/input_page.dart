@@ -5,6 +5,7 @@ import 'Icon_Content.dart';
 import 'Constants.dart';
 import 'round_iconButton.dart';
 import 'bottom_container.dart';
+import 'calculate_BMI.dart';
 
 enum Gender {
   male,
@@ -79,7 +80,9 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("BMI Calculator"),
+        title: Text(
+          "BMI Calculator",
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -262,10 +265,15 @@ class _InputPageState extends State<InputPage> {
           BottomContainer(
             bottomText: "Calculate",
             onPress: () {
+              CalculateBMI calc = CalculateBMI(height: height, weight: weight);
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => ResultPage(),
+                  builder: (context) => ResultPage(
+                    bmiResult: calc.bmiResult(),
+                    bmiText: calc.BMItext(),
+                    bmiDescription: calc.BMIdescription(),
+                  ),
                 ),
               );
             },
