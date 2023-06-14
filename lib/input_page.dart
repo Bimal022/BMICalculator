@@ -6,6 +6,7 @@ import 'Constants.dart';
 import 'round_iconButton.dart';
 import 'bottom_container.dart';
 import 'calculate_BMI.dart';
+import 'popUpMenuButtons.dart';
 
 enum Gender {
   male,
@@ -80,9 +81,10 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "BMI Calculator",
         ),
+        actions: popUpButtons,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -127,7 +129,7 @@ class _InputPageState extends State<InputPage> {
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     "HEIGHT",
                     style: labelTextStyle,
                   ),
@@ -138,7 +140,7 @@ class _InputPageState extends State<InputPage> {
                     textBaseline: TextBaseline.alphabetic,
                     children: [
                       Text(height.toString(), style: labelNumColor),
-                      Text(
+                      const Text(
                         'cm',
                         style: labelTextStyle,
                       ),
@@ -147,11 +149,13 @@ class _InputPageState extends State<InputPage> {
                   SliderTheme(
                     data: SliderTheme.of(context).copyWith(
                       activeTrackColor: Colors.white,
-                      inactiveTrackColor: Color(0xFF8D8E98),
-                      thumbColor: Color(0xFFEB1555),
-                      overlayColor: Color(0x29EB1555),
-                      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 12),
-                      overlayShape: RoundSliderOverlayShape(overlayRadius: 24),
+                      inactiveTrackColor: const Color(0xFF8D8E98),
+                      thumbColor: const Color(0xFFEB1555),
+                      overlayColor: const Color(0x29EB1555),
+                      thumbShape:
+                          const RoundSliderThumbShape(enabledThumbRadius: 12),
+                      overlayShape:
+                          const RoundSliderOverlayShape(overlayRadius: 24),
                     ),
                     child: Slider(
                         value: height.toDouble(),
@@ -176,7 +180,7 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("WEIGHT", style: labelTextStyle),
+                        const Text("WEIGHT", style: labelTextStyle),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.baseline,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -186,7 +190,7 @@ class _InputPageState extends State<InputPage> {
                               weight.toString(),
                               style: labelNumColor,
                             ),
-                            Text(
+                            const Text(
                               'kg',
                               style: labelTextStyle,
                             )
@@ -203,7 +207,7 @@ class _InputPageState extends State<InputPage> {
                                 });
                               },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10.0,
                             ),
                             RoundIconButton(
@@ -226,7 +230,7 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("AGE", style: labelTextStyle),
+                        const Text("AGE", style: labelTextStyle),
                         Text(
                           age.toString(),
                           style: labelNumColor,
@@ -242,7 +246,7 @@ class _InputPageState extends State<InputPage> {
                                 });
                               },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10.0,
                             ),
                             RoundIconButton(

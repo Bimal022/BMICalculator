@@ -2,10 +2,12 @@ import 'package:bmi_calculator/Reusable_Container.dart';
 import 'package:flutter/material.dart';
 import 'Constants.dart';
 import 'bottom_container.dart';
+import 'popUpMenuButtons.dart';
 
 class ResultPage extends StatefulWidget {
-  ResultPage(
-      {required this.bmiResult,
+  const ResultPage(
+      {super.key,
+      required this.bmiResult,
       required this.bmiText,
       required this.bmiDescription});
   final String bmiResult;
@@ -21,15 +23,16 @@ class _ResultPageState extends State<ResultPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("BMI CALCULATOR"),
+        title: const Text("BMI CALCULATOR"),
+        actions: popUpButtons,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
-            margin: EdgeInsets.all(10),
-            child: Text(
+            margin: const EdgeInsets.all(10),
+            child: const Text(
               "Your Result",
               style: titleTextStyle,
             ),
